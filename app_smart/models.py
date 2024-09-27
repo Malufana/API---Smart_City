@@ -8,8 +8,8 @@ class Sensor(models.Model):
         ('Luminosidade', 'Luminosidade'),
     ]
 
-    tipo = models.CharField(max_length=50, choices=TIPOS_SENSOR_CHOICES)
-    mac_address = models.CharField(max_length=20, null=True)
+    tipo = models.CharField(max_length=100, choices=TIPOS_SENSOR_CHOICES)
+    mac_address = models.CharField(max_length=100, null=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
     localizacao = models.CharField(max_length=100)

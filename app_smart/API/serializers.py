@@ -20,3 +20,6 @@ class SensorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sensor
         fields = '__all__'
+
+class CSVFileUploadSerializer(serializers.Serializer):
+    file = serializers.FileField()
