@@ -1,17 +1,12 @@
 from django.contrib.auth.models import User
 from rest_framework import generics, permissions
 from app_smart.API import serializers
-from rest_framework.response import Response
-from rest_framework import status
 from ..models import Sensor
 from rest_framework import viewsets
 from app_smart.API.filters import SensorFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.parsers import MultiPartParser
-from app_smart.API.serializers import CSVFileUploadSerializer
-import pandas as pd
-from django.views.generic import TemplateView
 from django.shortcuts import render
+from ..models import Sensor, TemperaturaData
 
 class CreateUserAPIViewSet(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -28,3 +23,7 @@ class SensorViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_class = SensorFilter
 
+class TemperaturaDataViewSet(viewsets.ModelViewSet):
+    queryset = TemperaturaData.objects.all()
+    serializer_class = serializers.TemperaturaDataSerliazer
+    permission_classes = [permissions.IsAuthenticated]
