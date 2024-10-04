@@ -1,0 +1,29 @@
+def process_upload(request):
+    if request.method == 'POST':
+        upload_type = request.POST.get('upload_type')
+
+        if upload_type == 'sensor':
+            # Processar o CSV do sensor
+            sensor_file = request.FILES['sensor_csv']
+            # Lógica para processar o arquivo
+        elif upload_type == 'luminosidade':
+            # Processar o CSV de luminosidade
+            luminosidade_file = request.FILES['luminosidade_csv']
+            # Lógica para processar o arquivo
+        elif upload_type == 'temperatura':
+            # Processar o CSV de temperatura
+            temperatura_file = request.FILES['temperatura_csv']
+            # Lógica para processar o arquivo
+        elif upload_type == 'umidade':
+            # Processar o CSV de umidade
+            umidade_file = request.FILES['umidade_csv']
+            # Lógica para processar o arquivo
+        elif upload_type == 'contador':
+            # Processar o CSV do contador
+            contador_file = request.FILES['contador_csv']
+            # Lógica para processar o arquivo
+
+    return render(request, 'upload.html')
+
+
+TENTAR
